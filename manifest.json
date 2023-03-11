@@ -1,11 +1,11 @@
 {
     "name": "URL Shortener Chrome Extension",
-    "version": "0.1",
-    "description": "Shorten your long url using t.ly api",    
+    "version": "0.2",
+    "description": "Shorten your long url using the t.brk.io api",    
     "icons": {
         "128": "Images/Logo.png"
     },
-    "browser_action": {
+    "action": {
       "default_icon": "Images/Logo.png",
       "default_popup": "popup.html"
     },
@@ -14,8 +14,17 @@
         "open_in_tab": false,
         "default_icon": "Images/Logo.png"
     },
-    "manifest_version": 2,
+    "manifest_version": 3,
+    "content_scripts": [{
+        "matches": ["https://*/*", "http://*/*"],
+        "js": ["lib/jquery.min.js"]
+    }],
     "permissions": [
-        "storage"
+        "storage",
+        "webRequest",
+        "tabs"
+    ],
+    "host_permissions": [
+        "https://t.brk.io/"
     ]
-  }
+}

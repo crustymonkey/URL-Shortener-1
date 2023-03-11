@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script defer src="js/popup.js"></script>
+    <script src="./lib/jquery.min.js"></script>
     <link rel="stylesheet" href="css/spectre.min.css">
     <title>URL Shortener</title>
 </head>
@@ -16,7 +17,8 @@
           </div>
         <div class="form-group" id="longUrldiv">
             <label class="form-label" for="longUrl">Long URL <b>*</b></label>
-            <input class="form-input" type="text" id="longUrl" placeholder="Enter the long URL...">
+            <!--<input class="form-input" type="text" id="longUrl" placeholder="Enter the long URL...">-->
+            <input class="form-input" type="text" id="longUrl" value="">
             <p class="form-input-hint d-hide" id="longUrlError" >Long URL is invalid/empty.</p>
         </div>
         <div class="container">
@@ -26,16 +28,8 @@
               <div class="form-group column col-7 tooltip" data-tooltip="Click to copy">
                 <input class="form-input d-hide" id="shortUrl" style="width:auto" readonly/>
               </div>&nbsp;&nbsp;
-              <figure class="avatar avatar-sm">
-              <a href="https://github.com/YadaGiriReddy/URL-Shortener-Chrome-Extension" target="_blank">
-                <img src="Images/GithubLogo.png" alt="GitHub Logo">
-              </a>
-              </figure>
             </div>
           </div> 
-          <div class="form-group p-centered">
-          <label class="form-label">Designed & Developed with <span class="text-error">♥</span> by <a href="https://www.linkedin.com/in/hyadagirireddy/" target="_blank">Yadagiri Reddy</a>. </label>
-        </div>
     </div>    
 </body>
 </html>
