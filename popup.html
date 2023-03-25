@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script defer src="js/popup.js"></script>
     <script src="./lib/jquery.min.js"></script>
+    <script src="./lib/content.js"></script>
     <link rel="stylesheet" href="css/spectre.min.css">
     <title>URL Shortener</title>
 </head>
@@ -19,6 +20,8 @@
             <label class="form-label" for="longUrl">Long URL <b>*</b></label>
             <!--<input class="form-input" type="text" id="longUrl" placeholder="Enter the long URL...">-->
             <input class="form-input" type="text" id="longUrl" value="">
+            <label class="form-label" for="cust_short">Custom short ext.</label>
+            <input type="text" size="6" id="cust_short" value="">
             <p class="form-input-hint d-hide" id="longUrlError" >Long URL is invalid/empty.</p>
         </div>
         <div class="container">

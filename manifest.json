@@ -3,11 +3,16 @@
     "version": "0.2",
     "description": "Shorten your long url using the t.brk.io api",    
     "icons": {
+        "16": "Images/logo_16.png",
         "128": "Images/Logo.png"
     },
     "action": {
       "default_icon": "Images/Logo.png",
       "default_popup": "popup.html"
+    },
+    "background": {
+        "service_worker": "js/background.js",
+        "type": "module"
     },
     "options_ui": {
         "page": "options.html",
@@ -17,11 +22,14 @@
     "manifest_version": 3,
     "content_scripts": [{
         "matches": ["https://*/*", "http://*/*"],
-        "js": ["lib/jquery.min.js"]
+        "js": ["lib/jquery.min.js", "lib/content.js"]
     }],
     "permissions": [
         "storage",
         "webRequest",
+        "contextMenus",
+        "clipboardWrite",
+        "offscreen",
         "tabs"
     ],
     "host_permissions": [

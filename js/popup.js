@@ -24,6 +24,10 @@ createBtn.addEventListener('click', () => {
         successMsgToast.classList.add("d-hide");
         loader.classList.remove('d-hide');
         console.log("in create");
+        let short = $("#cust_short").val();
+        if (!short) {
+            short = null;
+        }
 
         chrome.storage.local.get(['ApiToken'], function (result) {
             $.ajax({
@@ -32,7 +36,7 @@ createBtn.addEventListener('click', () => {
                 contentType: "application/json; charset=utf-8",
                 data: JSON.stringify({ 
                     "long_url": longUrlTxt.value,
-                    "short": null
+                    "short": short
                 }),
                 traditional: true,
                 dataType: "json",
@@ -47,6 +51,7 @@ createBtn.addEventListener('click', () => {
                         shortUrlTxt.classList.remove('d-hide');
                         loader.classList.add('d-hide');                
                         successMsgToast.classList.remove("d-hide");
+                        $("#cust_short").val('');
                         shortUrlTxt.value= url_base + "/" + res.short_url;
                         longUrlTxt.value="";
                     }
@@ -69,5 +74,5 @@ createBtn.addEventListener('click', () => {
 
 shortUrlTxt.addEventListener('click', () => {
     shortUrlTxt.select();    
-    document.execCommand("copy");
+    navigator.clipboard.writeText(shortUrlTxt.value);
 });
